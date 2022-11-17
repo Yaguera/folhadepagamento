@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0 auto;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        body{
+            width: 300px;
+            padding: 10px;
+            height: 100%;
+            border: 1px solid black;
+            text-align: center;
+            margin-top: 50vh;
+            background-color: aqua;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <script>
+        var horas = parseFloat(prompt("digite o valor da hora"));
+        var quantHoras = parseFloat(prompt("digite a quantidade de horas trabalhadas"));
+        var salarioBruto = horas * quantHoras;
+        var salarioLiquido;
+        var IR;
+        var sindicato;
+        var ir
+        var totalDesconto
+        
+    
+        if (salarioBruto <= 900){
+            salarioLiquido = salarioBruto
+        } else {
+            if (salarioBruto > 900 && salarioBruto <= 1500){
+                IR = salarioBruto * 0.05
+                ir = " 5% "
+            } else {
+                if (salarioBruto > 1500 && salarioBruto <=2500) {
+                    IR = salarioBruto * 0.1
+                    ir = "10%"
+                } else {
+                IR = salarioBruto * 0.2
+                ir = "20%"
+            }
+            } 
+        }
+        sindicato = salarioBruto * 0.03
+        totalDesconto = IR + sindicato
+        salarioLiquido = salarioBruto - totalDesconto;
+        document.write("Salário Bruto: (" + horas + " * " + quantHoras + ")    : R$ "+ salarioBruto.toFixed(2) + "<br>" );
+        document.write("(-) IR (" + ir + "):  R$ " + IR.toFixed(2) + "<br>");
+        document.write("(-) Desconto Sindicato:  R$ " + sindicato.toFixed(2) + "<br>");
+        document.write("Total de desconto:  R$ " + totalDesconto.toFixed(2) + "<br>");
+        document.write("Salário Líquido:  R$ " + salarioLiquido.toFixed(2)+"<br>");
+    
+        
+    </script>
+</body>
+</html>
+
